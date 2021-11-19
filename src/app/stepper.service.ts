@@ -3,7 +3,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { StepType } from './step.type';
 import { HttpClient } from '@angular/common/http';
 import { dataArray } from './steps/steps.component';
-import { flatMap } from 'rxjs';
 
 const STEPS = [
   { id: 1, completed: false },
