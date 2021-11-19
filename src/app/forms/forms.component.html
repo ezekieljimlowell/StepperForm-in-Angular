@@ -1,0 +1,22 @@
+<h1>Forms</h1>
+<div class="form-page-container">
+  <app-steps></app-steps>
+  <ng-container [ngSwitch]="currentStep?.id" class="form-step">
+    <ng-container *ngSwitchCase="'1'">
+      <app-step-template [step]="currentStep"></app-step-template>
+    </ng-container>
+    <ng-container *ngSwitchCase="'2'">
+      <app-step-template [step]="currentStep"></app-step-template>
+    </ng-container>
+    <ng-container *ngSwitchCase="'3'">
+      <app-step-template [step]="currentStep"></app-step-template>
+    </ng-container>
+    <button
+      (click)="nextStepper()"
+      [disabled]="!currentStep?.completed"
+      class="form-continue-button common-button"
+    >
+      {{ showButtonLabel() }}
+    </button>
+  </ng-container>
+</div>

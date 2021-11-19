@@ -1,0 +1,21 @@
+<h1>Step Component</h1>
+<div class="form-steps-container">
+<ng-container
+  *ngFor="let step of stepsObservable | async; let i = index"
+>
+  <button
+    (click)="stepClickHandle(step)"
+    [ngClass]="{
+      'step-complete': step.completed,
+      'step-incomplete': !step.completed,
+      'step-current': (currentStep | async)?.id === step.id
+    }"
+    class="step-bubble"
+  >
+    {{ step.id }}
+  </button>
+  <div
+    class="step-divider"
+  ></div>
+</ng-container>
+</div>
