@@ -11,6 +11,12 @@
     <ng-container *ngSwitchCase="'3'">
       <app-step-template [step]="currentStep"></app-step-template>
     </ng-container>
+    <ng-container  *ngSwitchCase="'4'">
+      <app-step-template [step]="currentStep"></app-step-template>
+    </ng-container>
+    <ng-container  *ngSwitchCase="'5'">
+      <app-step-template [step]="currentStep"></app-step-template>
+    </ng-container>
     <button
       (click)="nextStepper()"
       [disabled]="!currentStep?.completed"

@@ -7,7 +7,9 @@ import { dataArray } from './steps/steps.component';
 const STEPS = [
   { id: 1, completed: false },
   { id: 2, completed: false },
-  { id: 3, completed: false }
+  { id: 3, completed: false },
+  { id: 4, completed: false },
+  { id: 5, completed: false }
 ]
 
 //const API_TODOS = "https://jsonplaceholder.typicode.com/todos";
@@ -42,7 +44,6 @@ export class StepperService {
 
   nextStep(): void {
     const index = this.currentStep$.value.id;
-
     if (index < this.stepperBehaviour$.value.length) {
       this.currentStep$.next(this.stepperBehaviour$.value[index])
     }
