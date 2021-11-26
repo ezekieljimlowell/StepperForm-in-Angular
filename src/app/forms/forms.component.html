@@ -11,18 +11,131 @@
     <ng-container *ngSwitchCase="'3'">
       <app-step-template [step]="currentStep"></app-step-template>
     </ng-container>
-    <ng-container  *ngSwitchCase="'4'">
+    <ng-container *ngSwitchCase="'4'">
       <app-step-template [step]="currentStep"></app-step-template>
     </ng-container>
-    <ng-container  *ngSwitchCase="'5'">
+    <ng-container *ngSwitchCase="'5'">
       <app-step-template [step]="currentStep"></app-step-template>
     </ng-container>
-    <button
-      (click)="nextStepper()"
-      [disabled]="!currentStep?.completed"
-      class="form-continue-button common-button"
-    >
-      {{ showButtonLabel() }}
+    <ng-container *ngSwitchCase="'6'">
+      <app-food-form>
+        <ng-container select="food">
+          <form>
+            <h2>Select Favourite foods</h2>
+            <input
+              type="checkbox"
+              (change)="chekcFood($event)"
+              name="Biriyani"
+              value="Biriyani"
+            />
+            <label>Biriyani</label>
+            <input
+              type="checkbox"
+              class="food"
+              name="Barbeque"
+              (change)="chekcFood($event)"
+              value="Barbeque"
+            />
+            <label>Barbeque</label>
+            <input
+              type="checkbox"
+              class="food"
+              name="Sambar"
+              value="Sambar"
+              (change)="chekcFood($event)"
+            />
+            <label>Sambar</label>
+            <input
+              type="checkbox"
+              class="food"
+              name="Mutton"
+              value="Mutton"
+              (change)="chekcFood($event)"
+            />
+            <label>Mutton</label>
+            <input
+              type="checkbox"
+              class="food"
+              name="Sweets"
+              value="Sweets"
+              (change)="chekcFood($event)"
+            />
+            <label>Sweets</label>
+            <input
+              type="checkbox"
+              class="food"
+              name="Vegeetables"
+              (change)="chekcFood($event)"
+              value="Vegeetables"
+            />
+            <label>Vegeetables</label>
+            <h2>Select Favourite places</h2>
+            <input
+              type="radio"
+              class="places"
+              name="Chennai"
+              value="Chennai"
+              (change)="chekcFood($event)"
+            />
+            <label>Chennai</label>
+            <input
+              type="radio"
+              class="places"
+              name="Tuticorin"
+              (change)="chekcFood($event)"
+              value="Tuticorin"
+            />
+            <label>Tuticorin</label>
+            <input
+              type="radio"
+              class="places"
+              name="Ooty"
+              value="Ooty"
+              (change)="chekcFood($event)"
+            />
+            <label>Ooty</label>
+            <input
+              type="radio"
+              class="places"
+              name="Kashmir"
+              value="Kashmir"
+              (change)="chekcFood($event)"
+            />
+            <label>Kashmir</label>
+            <input
+              type="radio"
+              class="places"
+              name="Israel"
+              value="Israel"
+              (change)="chekcFood($event)"
+            />
+            <label>Israel</label>
+          </form>
+          <div *ngFor="let foodsAndPlaces of checkedFood">
+            {{ foodsAndPlaces }}
+          </div>
+          <app-step-template [step]="currentStep"></app-step-template>
+        </ng-container>
+      </app-food-form>
+    </ng-container>
+    <ng-container *ngSwitchCase="'7'">
+      <app-todos-form>
+        <form>
+          <input
+            type="text"
+            ngModel="taskToBeAdded"
+            (change)="onTaskChange($event)"
+          />
+          <button type="button" (click)="submit()">Add Task</button>
+        </form>
+        <ul>
+          <li *ngFor="let task of todos">{{ task }}</li>
+        </ul>
+      </app-todos-form>
+      <app-step-template [step]="currentStep"></app-step-template>
+    </ng-container>
+    <button (click)="nextStepper()" class="form-continue-button common-button">
+      Next
     </button>
   </ng-container>
 </div>

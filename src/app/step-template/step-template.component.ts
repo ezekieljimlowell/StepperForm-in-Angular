@@ -14,8 +14,13 @@ export class StepTemplateComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onCompleteStep() {
-    this.step.completed = true;
+  onCompleteStep(event: any) {
+    if(event.target.checked) {
+      this.step.completed = true;
+    }
+    else {
+      this.step.completed = false;
+    }
   }
 
 }

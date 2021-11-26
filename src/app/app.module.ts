@@ -8,6 +8,9 @@ import { StepsComponent } from './steps/steps.component';
 import { CompletePageComponent } from './complete-page/complete-page.component';
 import { StepTemplateComponent } from './step-template/step-template.component';
 import { HttpClientModule} from '@angular/common/http';
+import { NgxContextModule } from 'ngx-context';
+import { FoodFormComponent } from './food-form/food-form.component';
+import { TodosFormComponent } from './todos-form/todos-form.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,15 @@ import { HttpClientModule} from '@angular/common/http';
     FormsComponent,
     StepsComponent,
     CompletePageComponent,
-    StepTemplateComponent
+    StepTemplateComponent,
+    FoodFormComponent,
+    TodosFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxContextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,10 +2,10 @@
 <div class="step-template">
   <h2>Step {{ step.id }}</h2>
   <div class="step-content-label">Task {{ step.id }}</div>
-  <button class="step-complete-button" (click)="onCompleteStep()">
+  <button class="step-complete-button" (click)="onCompleteStep($event)">
     <!--<span class="completed-step-check material-icons">
       {{ step.isComplete ? "check_circle" : "panorama_fish_eye" }} </span>-->
-      <input type="radio" class="completed-step-check" [checked]="step.completed">
+      <input type="checkbox" class="completed-step-check" [checked]="step.completed" (change)="onCompleteStep($event)">
       Complete {{ step.id }}
   </button>
 </div>
