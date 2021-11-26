@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { StepperService } from '../stepper.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { ArrayService } from '../array.service';
 
 var taskToBeAdded: any;
 
@@ -21,7 +22,8 @@ export class FormsComponent implements OnInit {
   currentStep!: StepType;
   currentStepSubscription!: Subscription;
 
-  constructor(private stepperService: StepperService, private router: Router, private http: HttpClient) { }
+  constructor(private stepperService: StepperService, 
+    private router: Router, private http: HttpClient, private arrayService: ArrayService) { }
 
   ngOnInit() {
     this.currentStepSubscription = this.stepperService.getCurrentStep().subscribe((step: StepType) => {

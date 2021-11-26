@@ -1,6 +1,9 @@
 <h1>Forms</h1>
 <div class="form-page-container">
   <app-steps></app-steps>
+  <ng-container *ngFor="let step of currentStep.id">
+    <app-step-template [step]="currentStep"></app-step-template>
+  </ng-container>
   <ng-container [ngSwitch]="currentStep?.id" class="form-step">
     <ng-container *ngSwitchCase="'1'">
       <app-step-template [step]="currentStep"></app-step-template>
