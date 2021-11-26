@@ -19,36 +19,61 @@ export class ArrayService {
   ]
 
   stepperBehaviour = this.STEPS;
-  currentStep: any = null;
-  previousStep$: any = null;
+  addedStep: any = [];
+  currentStep: any;
+  previousStep: any;
+  index: number = 0;
 
   constructor(private http: HttpClient) {
-    this.currentStep.push(this.stepperBehaviour[0]);
+    this.addedStep.push(this.STEPS[this.index]);
+    this.currentStep = this.addedStep.pop();
     console.log(this.currentStep)
   }
 
-  /*setCurrentStep(step: StepType): void {
-    this.currentStep$.next(step);
+  setCurrentStep(step: StepType): void {
+    this.addedStep.push(step);
+    this.currentStep = this.addedStep.pop();
+    console.log(this.currentStep);
   }
 
-  getCurrentStep(): Observable<StepType> {
-    return this.currentStep$.asObservable()
+  
+  getCurrentStep(): any {
+    console.log(this.currentStep)
+    return this.currentStep;
   }
 
-  getStepper(): Observable<StepType[]> {
-    return this.stepperBehaviour$.asObservable()
+  
+  getStepper(): any {
+    console.log(this.stepperBehaviour)
+    return this.stepperBehaviour;
   }
 
+  
   nextStep(): void {
-    const index = this.currentStep$.value.id;
-    if (index < this.stepperBehaviour$.value.length) {
-      this.currentStep$.next(this.stepperBehaviour$.value[index])
+    const index = this.currentStep.id;
+    if (index < this.stepperBehaviour.length) {
+      this.addedStep.push(this.stepperBehaviour[index]);
+      this.currentStep = this.addedStep.pop();
+      console.log(this.currentStep)
     }
   }
 
+  setPreviousStep(): void {
+    const index = this.currentStep.id - 1;
+    if(index < this.stepperBehaviour.length) {
+      this.addedStep.push(this.stepperBehaviour[index]);
+      this.previousStep = this.addedStep.pop();
+      console.log(this.previousStep);
+    }
+  }
+
+  isFirstStep(): boolean {
+    return this.previousStep.id === -1;
+  }
+
   isLastStep(): boolean {
-    return this.currentStep$.value.id === this.stepperBehaviour$.value.length;
-  }*/
+    return this.currentStep.id === this.stepperBehaviour.length;
+  }
 
 }
 

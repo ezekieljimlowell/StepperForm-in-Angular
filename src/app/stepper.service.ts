@@ -29,6 +29,7 @@ export class StepperService {
 
 
   setCurrentStep(step: StepType): void {
+    console.log(step);
     this.currentStep$.next(step);
   }
 
