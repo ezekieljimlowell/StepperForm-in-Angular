@@ -13,16 +13,14 @@ export var dataArray: any = [];
 })
 export class StepsComponent implements OnInit {
   stepsObservable!: any;
-  currentStep!: any;
-
-  constructor(private stepperServcie: StepperService) { 
+  currentStep!: Observable<StepType>;
+  constructor(private stepperServcie: StepperService) {
   }
 
   ngOnInit() {
-    
-    console.log(dataArray);
     this.stepsObservable = this.stepperServcie.getStepper();
     this.currentStep = this.stepperServcie.getCurrentStep();
+    console.log(this.currentStep)
   }
 
   stepClickHandle(stepNumber: StepType) {

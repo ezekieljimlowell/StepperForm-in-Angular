@@ -25,7 +25,6 @@ export class StepperService {
 
   stepperBehaviour$: BehaviorSubject<StepType[]> = new BehaviorSubject<StepType[]>(STEPS);
   currentStep$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
-  previousStep$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
 
   setCurrentStep(step: StepType): void {

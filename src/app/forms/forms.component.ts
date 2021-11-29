@@ -15,9 +15,9 @@ var taskToBeAdded: any;
 })
 
 export class FormsComponent implements OnInit {
+  checkedFood: any = [];
   todos: Array<string> = [];
   local: any = [];
-  checkedFood: any = [];
 
   currentStep!: StepType;
   currentStepSubscription!: Subscription;
