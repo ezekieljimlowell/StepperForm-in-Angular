@@ -23,11 +23,12 @@ export class FormsComponent implements OnInit {
   currentStepSubscription!: Subscription;
 
   constructor(private stepperService: StepperService, 
-    private router: Router, private http: HttpClient, private arrayService: ArrayService) { }
+    private router: Router, private http: HttpClient) { }
 
   ngOnInit() {
     this.currentStepSubscription = this.stepperService.getCurrentStep().subscribe((step: StepType) => {
       this.currentStep = step;
+      console.log(step)
     })
     const localStore = () => {
       if (this.todos.length > 0) {

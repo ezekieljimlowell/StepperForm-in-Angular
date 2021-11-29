@@ -9,14 +9,18 @@ import { StepType } from '../step.type';
 export class StepTemplateComponent implements OnInit {
   @Input() step!: StepType;
 
-  constructor() { }
+  constructor() { 
+    console.log(this.step)
+  }
 
   ngOnInit(): void {
+    
   }
 
   onCompleteStep(event: any) {
     if(event.target.checked) {
       this.step.completed = true;
+      console.log(this.step)
     }
     else {
       this.step.completed = false;

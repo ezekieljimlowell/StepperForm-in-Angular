@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StepType } from '../step.type';
 import { StepperService } from '../stepper.service';
+import { ArrayService } from '../array.service';
 import { Observable } from 'rxjs';
 
 export var dataArray: any = [];
@@ -11,8 +12,8 @@ export var dataArray: any = [];
   styleUrls: ['./steps.component.scss']
 })
 export class StepsComponent implements OnInit {
-  stepsObservable!: Observable<StepType[]>;
-  currentStep!: Observable<StepType>;
+  stepsObservable!: any;
+  currentStep!: any;
 
   constructor(private stepperServcie: StepperService) { 
   }
